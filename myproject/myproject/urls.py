@@ -1,16 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
-
-# Temporary views directly in urls.py for testing
-def home(request):
-    return HttpResponse("Hello, welcome to the Home Page!")
-
-def about(request):
-    return HttpResponse("About Us Page")
+from . import views  # Import the views module
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('about/', about, name='about'),
+    path('', views.home, name='home'),  # Connect the view to the homepage
 ]
